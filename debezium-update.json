@@ -1,0 +1,11 @@
+{
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "decimal.handling.mode": "double",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgresql",
+    "database.password": "password",
+    "database.dbname": "core-ledger",
+    "database.server.name": "postgres"
+}

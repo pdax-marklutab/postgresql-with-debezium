@@ -2,6 +2,7 @@
     "name": "core-ledger-connector",
     "config": {
       "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "decimal.handling.mode": "double",
       "plugin.name": "pgoutput",
       "database.hostname": "postgres",
       "database.port": "5432",

@@ -16,7 +16,7 @@ post-dbz-connector:
 	curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors --data "@debezium.json"
 
 put-dbz-connector:
-	curl -i -X PUT -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors/${CONNECTOR_NAME} --data "@debezium.json"
+	curl -i -X PUT -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors/${CONNECTOR_NAME}/config --data "@debezium-update.json"
 
 consume-transactions:
 	docker run --platform linux/x86_64 --tty --network ${NETWORK_NAME} confluentinc/cp-kafkacat kafkacat -b ${BROKER_URI} -C -s key=s -s value=avro -r ${SCHEMA_REGISTRY_URI} -t ${TOPIC_TRANSACTIONS}
