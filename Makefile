@@ -3,7 +3,7 @@ SCHEMA_REGISTRY_URI=http://schema-registry:8081
 TOPIC_TRANSACTIONS=postgres.public.transactions
 TOPIC_FEES=postgres.public.fees
 BROKER_URI=kafka:9092
-NETWORK_NAME=postgres-debezium-kafka_default 
+NETWORK_NAME=postgres-with-debezium-kafka_default 
 CONNECTOR_NAME=core-ledger-connector
 
 up:
