@@ -1,0 +1,8 @@
+Postgres:
+
+psql --username=postgresql -d core-ledger -W
+password
+
+INSERT INTO transactions (reference_id) VALUES ('1fe791e9-78e9-4b22-a0d6-ad00033b394f’);
+
+INSERT INTO fees (transaction_id) VALUES ('0999c138-9e9a-4719-80b5-2e5144fec405’);

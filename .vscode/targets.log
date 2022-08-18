@@ -1,0 +1,270 @@
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Thu Aug 18 15:48:45 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+NVM_INC = /Users/MBDLutab/.nvm/versions/node/v12.22.12/include/node
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/MBDLutab/Documents/GitHub/postgresql-with-debezium
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+HOMEBREW = /Users/MBDLutab/Documents/development/tools/homebrew
+# environment
+VSCODE_CWD = /
+# environment
+PATH = /Users/MBDLutab/.nvm/versions/node/v12.22.12/bin:/Users/MBDLutab/Documents/development/tools/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+# makefile (from `Makefile', line 5)
+BROKER_URI = kafka:9092
+# environment
+NVM_BIN = /Users/MBDLutab/.nvm/versions/node/v12.22.12/bin
+# environment
+LaunchInstanceID = 6339878E-9AFD-44D6-8E01-30E5754CA2CF
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.NTHYLiLmJ6/Listeners
+# automatic
+%F = $(notdir $%)
+# makefile (from `Makefile', line 2)
+SCHEMA_REGISTRY_URI = http://schema-registry:8081
+# environment
+PWD = /Users/MBDLutab/Documents/GitHub/postgresql-with-debezium
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/MBDLutab
+# makefile (from `Makefile', line 1)
+DBZURI = 127.0.0.1:8083
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/MBDLutab/Library/Application Support/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+# environment
+LOGNAME = MBDLutab
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+NVM_CD_FLAGS = -q
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 4)
+TOPIC_FEES = postgres.public.fees
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = MBDLutab
+# makefile
+.DEFAULT_GOAL := up
+# makefile (from `Makefile', line 3)
+TOPIC_TRANSACTIONS = postgres.public.transactions
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/jy/jy9sc5ms5xnbys3lgk83kj0w0000gp/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/MBDLutab/Library/Application Support/Code/1.69.0-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /Users/MBDLutab/.nvm
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.1620789.1620795
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F6:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+SECURITYSESSIONID = 186b4
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+MAKELEVEL := 0
+# makefile (from `Makefile', line 6)
+NETWORK_NAME = postgres-debezium-kafka_default 
+# makefile (from `Makefile', line 7)
+CONNECTOR_NAME = core-ledger-connector
+# environment
+LANG = C
+# environment
+VSCODE_PID = 602
+# variable set hash-table stats:
+# Load=71/1024=7%, Rehash=0, Collisions=1/94=1%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777234, inode 3528491): 9 files, no impossibilities.
+
+# 9 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+put-dbz-connector:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 19):
+	curl -i -X PUT -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors/${CONNECTOR_NAME} --data "@debezium.json"
+	
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+up:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 10):
+	docker-compose up -d
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-18 12:11:32
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+post-dbz-connector:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 16):
+	curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors --data "@debezium.json"
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+consume-transactions:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 22):
+	docker run --platform linux/x86_64 --tty --network ${NETWORK_NAME} confluentinc/cp-kafkacat kafkacat -b ${BROKER_URI} -C -s key=s -s value=avro -r ${SCHEMA_REGISTRY_URI} -t ${TOPIC_TRANSACTIONS}
+	
+
+consume-fees:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 25):
+	docker run --platform linux/x86_64 --tty --network ${NETWORK_NAME} confluentinc/cp-kafkacat kafkacat -b ${BROKER_URI} -C -s key=s -s value=avro -r ${SCHEMA_REGISTRY_URI} -t ${TOPIC_FEES}
+	
+
+down:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 13):
+	docker-compose down -v --remove-orphans
+	
+
+# files hash-table stats:
+# Load=10/1024=1%, Rehash=0, Collisions=0/22=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Thu Aug 18 15:48:45 2022
+
+ 
+make: *** No rule to make target `all'.  Stop.
+

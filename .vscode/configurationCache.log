@@ -1,0 +1,1 @@
+{"buildTargets":["consume-fees","consume-transactions","down","post-dbz-connector","put-dbz-connector","up"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
