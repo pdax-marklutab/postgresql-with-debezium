@@ -1,0 +1,13 @@
+{
+    "name" : "core-ledger-influx-sink-connector",
+    "config" : {
+      "connector.class" : "io.confluent.influxdb.InfluxDBSinkConnector",
+      "tasks.max" : "2",
+      "topics" : "postgres.public.transactions,postgres.public.fees",
+      "influxdb.url" : "http://influxdb:8086",
+      "influxdb.db" : "view-ledger",
+      "measurement.name.format" : "ms_${topic}",
+      "value.converter": "io.confluent.connect.avro.AvroConverter",
+      "value.converter.schema.registry.url": "http://schema-registry:8081"
+    }
+  }

@@ -1,5 +1,5 @@
 {
-    "name": "core-ledger-connector",
+    "name": "core-ledger-debezium-source-connector",
     "config": {
       "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
       "decimal.handling.mode": "double",
@@ -9,6 +9,8 @@
       "database.user": "postgresql",
       "database.password": "password",
       "database.dbname": "core-ledger",
-      "database.server.name": "postgres"
+      "database.server.name": "postgres",
+      "transforms": "unwrap",
+      "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
     }
   }

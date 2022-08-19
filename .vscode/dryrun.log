@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/MBDLutab/Documents/GitHub/postgresql-with-debezium'
+docker-compose up -d
+make: Leaving directory `/Users/MBDLutab/Documents/GitHub/postgresql-with-debezium'
+ 

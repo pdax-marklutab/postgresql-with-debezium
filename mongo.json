@@ -1,0 +1,12 @@
+{
+    "name": "core-ledger-mdb-sink-connector",
+    "config": {
+      "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+      "connection.uri": "mongodb://mongodb:27017",
+      "database": "view-ledger",
+      "writemodel.strategy" : "com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy",
+      "topics": "postgres.public.transactions,postgres.public.fees",
+      "value.converter": "io.confluent.connect.avro.AvroConverter",
+      "value.converter.schema.registry.url": "http://schema-registry:8081"
+    }
+  }
