@@ -1,0 +1,69 @@
+-- DEBEZIUM SOURCE CONNECTOR POSTGRES
+
+SET 'auto.offset.reset' = 'earliest';
+
+CREATE SOURCE CONNECTOR core_ledger_debezium_source_connector WITH (
+      'connector.class' = 'io.debezium.connector.postgresql.PostgresConnector',
+      'decimal.handling.mode' = 'double',
+      'plugin.name' = 'pgoutput',
+      'database.hostname' = 'postgres',
+      'database.port' = '5432',
+      'database.user' = 'postgresql',
+      'database.password' = 'password',
+      'database.dbname' = 'core-ledger',
+      'database.server.name' = 'postgres',
+      'transforms' = 'unwrap',
+      'transforms.unwrap.type' = 'io.debezium.transforms.ExtractNewRecordState'
+);
+
+
+-- CREATE SOURCE CONNECTOR core_ledger_mongodb_sink_connector WITH (
+--       'connector.class' = 'com.mongodb.kafka.connect.MongoSinkConnector',
+--       'connection.uri' = 'mongodb://mongodb:27017',
+--       'database' = 'view-ledger',
+--       'writemodel.strategy' = 'com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy',
+--       'topics' = 'postgres.public.transactions,postgres.public.fees',
+--       'value.converter' = 'io.confluent.connect.avro.AvroConverter',
+--       'value.converter.schema.registry.url' = 'http://schema-registry:8081'
+-- );
+
+CREATE SOURCE CONNECTOR core_ledger_mongodb_sink_connector WITH (
+      'connector.class' = 'com.mongodb.kafka.connect.MongoSinkConnector',
+      'connection.uri' = 'mongodb://mongodb:27017',
+      'database' = 'view-ledger',
+      'writemodel.strategy' = 'com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy',
+      'topics' = 'dernormalized_transactions_stream'
+);
+
+
+CREATE STREAM transactions_stream WITH (
+    kafka_topic = 'postgres.public.transactions',
+    value_format = 'avro'
+);
+
+CREATE STREAM fees_stream WITH (
+    kafka_topic = 'postgres.public.fees',
+    value_format = 'avro'
+);
+
+CREATE STREAM dernormalized_transactions_stream WITH (
+    kafka_topic = 'dernormalized_transactions_stream'
+)   AS
+    SELECT *
+    FROM transactions_stream AS ts
+    INNER JOIN fees_stream fs
+    ON ts.id = fs.transaction_id
+    GROUP BY ts.id
+    EMIT CHANGES;
+
+
+    CREATE TABLE dernormalized_transactions_table WITH (
+    kafka_topic = 'dernormalized_transactions_table'
+)   AS
+    SELECT ts.id as transaction_id, COLLECT_LIST('{ "id" : "' + CAST(fs.id AS VARCHAR) + '", "amount" : "' + CAST(fs.amount AS VARCHAR) + '"}') as fees
+    FROM transactions_stream AS ts
+    INNER JOIN fees_stream fs
+    WITHIN 7 DAYS
+    ON ts.id = fs.transaction_id
+    GROUP BY ts.id
+    EMIT CHANGES;

@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Fri Aug 19 11:19:59 2022
+
+# Make data base, printed on Mon Aug 22 09:44:29 2022
 
 # Variables
 
@@ -31,6 +34,8 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+# makefile (from `Makefile', line 2)
+INFLUX_SINK_URI = 127.0.0.1:8084
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
@@ -41,21 +46,21 @@ HOMEBREW = /Users/MBDLutab/Documents/development/tools/homebrew
 VSCODE_CWD = /
 # environment
 PATH = /Users/MBDLutab/.nvm/versions/node/v12.22.12/bin:/Users/MBDLutab/Documents/development/tools/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-# makefile (from `Makefile', line 5)
-BROKER_URI = kafka:9092
+# makefile (from `Makefile', line 7)
+BROKER_URI = broker:29092
 # environment
 NVM_BIN = /Users/MBDLutab/.nvm/versions/node/v12.22.12/bin
 # environment
-LaunchInstanceID = 22B019A7-4423-47B1-9EA4-F1ED3AC631AE
+LaunchInstanceID = 4E08631E-66A4-4957-889F-34F17B9928EB
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.g6LPKX0jVj/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.8A8wczlohm/Listeners
 # automatic
 %F = $(notdir $%)
-# makefile (from `Makefile', line 2)
+# makefile (from `Makefile', line 3)
 SCHEMA_REGISTRY_URI = http://schema-registry:8081
 # environment
 PWD = /Users/MBDLutab/Documents/GitHub/postgresql-with-debezium
@@ -81,7 +86,7 @@ NVM_CD_FLAGS = -q
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
-# makefile (from `Makefile', line 4)
+# makefile (from `Makefile', line 5)
 TOPIC_FEES = postgres.public.fees
 # environment
 XPC_FLAGS = 0x0
@@ -97,7 +102,7 @@ MAKE_VERSION := 3.81
 USER = MBDLutab
 # makefile
 .DEFAULT_GOAL := up
-# makefile (from `Makefile', line 3)
+# makefile (from `Makefile', line 4)
 TOPIC_TRANSACTIONS = postgres.public.transactions
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -112,6 +117,7 @@ TMPDIR = /var/folders/jy/jy9sc5ms5xnbys3lgk83kj0w0000gp/T/
 # environment
 VSCODE_IPC_HOOK = /Users/MBDLutab/Library/Application Support/Code/1.69.0-main.sock
 # environment
+ 
 MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
@@ -138,23 +144,23 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186e0
+SECURITYSESSIONID = 186b4
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
 # environment
 MAKELEVEL := 0
-# makefile (from `Makefile', line 6)
+# makefile (from `Makefile', line 8)
 NETWORK_NAME = postgresql-with-debezium_default
-# makefile (from `Makefile', line 7)
+# makefile (from `Makefile', line 9)
 CONNECTOR_NAME = core-ledger-connector
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1218
+VSCODE_PID = 612
 # variable set hash-table stats:
-# Load=71/1024=7%, Rehash=0, Collisions=1/94=1%
+# Load=72/1024=7%, Rehash=0, Collisions=1/95=1%
 
 # Pattern-specific Variable Values
 
@@ -162,23 +168,15 @@ VSCODE_PID = 1218
 
 # Directories
 
-# . (device 16777232, inode 3528491): 10 files, no impossibilities.
+# . (device 16777232, inode 3528491): 15 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
-
-put-dbz-connector:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 19):
-	curl -i -X PUT -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors/${CONNECTOR_NAME}/config --data "@debezium-update.json"
-	
 
 # Not a target:
 all:
@@ -193,7 +191,7 @@ up:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 10):
+#  commands to execute (from `Makefile', line 12):
 	docker-compose up -d
 	
 
@@ -206,19 +204,11 @@ up:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 17:37:12
+#  Last modified 2022-08-19 13:24:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-post-dbz-connector:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 16):
-	curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" ${DBZURI}/connectors --data "@debezium.json"
-	
 
 # Not a target:
 .DEFAULT:
@@ -230,7 +220,7 @@ consume-transactions:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 22):
+#  commands to execute (from `Makefile', line 30):
 	docker run --platform linux/x86_64 --tty --network ${NETWORK_NAME} confluentinc/cp-kafkacat kafkacat -b ${BROKER_URI} -C -s key=s -s value=avro -r ${SCHEMA_REGISTRY_URI} -t ${TOPIC_TRANSACTIONS}
 	
 
@@ -238,7 +228,7 @@ consume-fees:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 25):
+#  commands to execute (from `Makefile', line 33):
 	docker run --platform linux/x86_64 --tty --network ${NETWORK_NAME} confluentinc/cp-kafkacat kafkacat -b ${BROKER_URI} -C -s key=s -s value=avro -r ${SCHEMA_REGISTRY_URI} -t ${TOPIC_FEES}
 	
 
@@ -246,12 +236,12 @@ down:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 13):
+#  commands to execute (from `Makefile', line 15):
 	docker-compose down -v --remove-orphans
 	
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/22=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/20=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -263,8 +253,6 @@ down:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Aug 19 11:19:59 2022
+# Finished Make data base on Mon Aug 22 09:44:29 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-
